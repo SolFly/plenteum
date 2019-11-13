@@ -1392,6 +1392,7 @@ namespace CryptoNote
         }
 
         res.status = CORE_RPC_STATUS_OK;
+	res.data = Common::podToHex(m_core.getTopBlockHash()); // Return block header hash
         return true;
     }
 
