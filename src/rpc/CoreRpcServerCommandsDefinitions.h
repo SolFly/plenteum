@@ -38,7 +38,15 @@ namespace CryptoNote
             KV_MEMBER(status)
         }
     };
+struct STATUS_STRUCT_EX {
+  std::string status;
+  std::string data;
 
+  void serialize(ISerializer &s) {
+    KV_MEMBER(status)
+    KV_MEMBER(data)
+  }
+};
     struct COMMAND_RPC_GET_HEIGHT
     {
         typedef EMPTY_STRUCT request;
@@ -541,7 +549,7 @@ namespace CryptoNote
     struct COMMAND_RPC_SUBMITBLOCK
     {
         typedef std::vector<std::string> request;
-        typedef STATUS_STRUCT response;
+        typedef STATUS_STRUCT_EX response;
     };
 
     struct block_header_response
